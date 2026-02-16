@@ -52,6 +52,120 @@
   --contrast-color: #ffffff;
 }
 
+/* Dark mode: supports Bootstrap data-bs-theme and legacy .dark-mode body class */
+[data-bs-theme="dark"],
+.dark-mode {
+  --background-color: #0b0c0f;
+  --default-color: #e6eef8;
+  --heading-color: #ffffff;
+  --accent-color: #4dabff;
+  --surface-color: #0f1720;
+  --contrast-color: #ffffff;
+
+  --nav-color: #e6eef8;
+  --nav-hover-color: #9ad1ff;
+  --nav-mobile-background-color: #0b0c0f;
+  --nav-dropdown-background-color: #0f1720;
+  --nav-dropdown-color: #e6eef8;
+  --nav-dropdown-hover-color: #9ad1ff;
+}
+
+/* Respect user's OS preference when no explicit theme is set */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-bs-theme="light"]):not(.light-mode) {
+    --background-color: #0b0c0f;
+    --default-color: #e6eef8;
+    --heading-color: #ffffff;
+    --accent-color: #4dabff;
+    --surface-color: #0f1720;
+    --contrast-color: #ffffff;
+
+    --nav-color: #e6eef8;
+    --nav-hover-color: #9ad1ff;
+    --nav-mobile-background-color: #0b0c0f;
+    --nav-dropdown-background-color: #0f1720;
+    --nav-dropdown-color: #e6eef8;
+    --nav-dropdown-hover-color: #9ad1ff;
+  }
+}
+
+/* Ensure sections using .light-background follow dark theme when dark mode is active */
+[data-bs-theme="dark"] .light-background,
+.dark-mode .light-background {
+  --background-color: var(--background-color);
+  --surface-color: #0f1720;
+  --default-color: #e6eef8;
+  --heading-color: #ffffff;
+  --accent-color: #4dabff;
+  --contrast-color: #ffffff;
+
+  --nav-color: #e6eef8;
+  --nav-hover-color: #9ad1ff;
+  --nav-mobile-background-color: #0b0c0f;
+  --nav-dropdown-background-color: #0f1720;
+  --nav-dropdown-color: #e6eef8;
+  --nav-dropdown-hover-color: #9ad1ff;
+}
+
+/* Buttons that use Bootstrap's .btn-light need dark overrides */
+[data-bs-theme="dark"] .btn.btn-light,
+.dark-mode .btn.btn-light {
+  background-color: color-mix(in srgb, var(--surface-color), transparent 10%);
+  color: var(--default-color);
+  border-color: color-mix(in srgb, var(--default-color), transparent 80%);
+}
+
+/* Small tweak: make testimonial and faq cards use clearer surface in dark */
+[data-bs-theme="dark"] .testimonials .testimonial-item,
+.dark-mode .testimonials .testimonial-item,
+[data-bs-theme="dark"] .faq .faq-container .faq-item,
+.dark-mode .faq .faq-container .faq-item,
+[data-bs-theme="dark"] .services .service-card,
+.dark-mode .services .service-card,
+[data-bs-theme="dark"] .pricing .pricing-card,
+.dark-mode .pricing .pricing-card {
+  background-color: var(--surface-color);
+  box-shadow: 0 4px 24px rgba(2,6,23,0.6);
+}
+
+/* Dark-mode specific adjustments for Call To Action and Contact Info */
+[data-bs-theme="dark"] .call-to-action .container,
+.dark-mode .call-to-action .container {
+  /* Use a darker surface with a subtle accent tint for CTA */
+  background: color-mix(in srgb, var(--surface-color) 85%, var(--accent-color) 15%);
+  color: var(--default-color);
+}
+
+[data-bs-theme="dark"] .call-to-action .content h2,
+.dark-mode .call-to-action .content h2,
+[data-bs-theme="dark"] .call-to-action .content p,
+.dark-mode .call-to-action .content p {
+  color: var(--default-color);
+}
+
+[data-bs-theme="dark"] .call-to-action .btn-cta,
+.dark-mode .call-to-action .btn-cta {
+  border-color: color-mix(in srgb, var(--default-color), transparent 80%);
+  color: var(--default-color);
+}
+
+[data-bs-theme="dark"] .contact .info-box,
+.dark-mode .contact .info-box {
+  /* Keep accent but darker for contrast in dark mode */
+  background-color: color-mix(in srgb, var(--accent-color) 30%, var(--surface-color) 70%);
+  color: var(--default-color);
+}
+
+[data-bs-theme="dark"] .contact .info-box h3,
+.dark-mode .contact .info-box h3 {
+  color: var(--default-color);
+}
+
+[data-bs-theme="dark"] .contact .info-item .icon-box,
+.dark-mode .contact .info-item .icon-box {
+  background-color: color-mix(in srgb, var(--contrast-color), transparent 85%);
+}
+
 /* Smooth scroll */
 :root {
   scroll-behavior: smooth;

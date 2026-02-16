@@ -1,24 +1,51 @@
-// Dark mode toggle
-const toggleDarkMode = () => {
+// Dark mode toggle: toggles body class and Bootstrap data-bs-theme attribute
+(function () {
+    const storageKey = 'theme'; // values: 'dark' | 'light'
+    const toggleBtn = document.getElementById('darkModeToggle');
+    const root = document.documentElement;
     const body = document.body;
-    const isDarkMode = body.classList.toggle('dark-mode');
 
-    // Save user preference in localStorage
-    localStorage.setItem('darkMode', isDarkMode ? 'enabled' : 'disabled');
-};
-
-// Load user preference on page load
-window.addEventListener('DOMContentLoaded', () => {
-    const darkModePreference = localStorage.getItem('darkMode');
-    if (darkModePreference === 'enabled') {
-        document.body.classList.add('dark-mode');
+    function applyTheme(theme) {
+        if (theme === 'dark') {
+            body.classList.add('dark-mode');
+            root.setAttribute('data-bs-theme', 'dark');
+            if (toggleBtn) toggleBtn.textContent = 'Light Mode';
+        } else {
+            body.classList.remove('dark-mode');
+            root.setAttribute('data-bs-theme', 'light');
+            if (toggleBtn) toggleBtn.textContent = 'Dark Mode';
+        }
     }
-});
 
-// Attach event listener to the toggle button
-const darkModeToggle = document.getElementById('darkModeToggle');
-if (darkModeToggle) {
-    darkModeToggle.addEventListener('click', toggleDarkMode);
-}
+    function getStoredTheme() {
+        return localStorage.getItem(storageKey);
+    }
+
+    function storeTheme(theme) {
+        localStorage.setItem(storageKey, theme);
+    }
+
+    // Initialize theme on DOMContentLoaded
+    window.addEventListener('DOMContentLoaded', () => {
+        const stored = getStoredTheme();
+        if (stored === 'dark' || stored === 'light') {
+            applyTheme(stored);
+            return;
+        }
+
+        // Fallback to prefers-color-scheme
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        applyTheme(prefersDark ? 'dark' : 'light');
+    });
+
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', () => {
+            const current = root.getAttribute('data-bs-theme') === 'dark' ? 'dark' : 'light';
+            const next = current === 'dark' ? 'light' : 'dark';
+            applyTheme(next);
+            storeTheme(next);
+        });
+    }
+})();
 
 
