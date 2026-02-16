@@ -9,11 +9,11 @@
         if (theme === 'dark') {
             body.classList.add('dark-mode');
             root.setAttribute('data-bs-theme', 'dark');
-            if (toggleBtn) toggleBtn.textContent = 'Light Mode';
+            if (toggleBtn) toggleBtn.innerHTML = '<i class="bi bi-moon-fill"></i>';
         } else {
             body.classList.remove('dark-mode');
             root.setAttribute('data-bs-theme', 'light');
-            if (toggleBtn) toggleBtn.textContent = 'Dark Mode';
+            if (toggleBtn) toggleBtn.innerHTML = '<i class="bi bi-sun-fill"></i>';
         }
     }
 

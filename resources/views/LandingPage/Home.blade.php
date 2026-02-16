@@ -78,7 +78,9 @@
 
       <a class="btn-getstarted" href="/login" target="_blank" rel="noopener noreferrer">Acceder</a>
 
-      <button id="darkModeToggle" class="btn btn-secondary">Dark Mode</button>
+      <button id="darkModeToggle" class="btn btn-secondary">
+        <i class="bi bi-moon-stars"></i>
+      </button>
 
     </div>
   </header>
