@@ -78,6 +78,8 @@
 
       <a class="btn-getstarted" href="/login" target="_blank" rel="noopener noreferrer">Acceder</a>
 
+      <button id="darkModeToggle" class="btn btn-secondary">Dark Mode</button>
+
     </div>
   </header>
 
@@ -1230,7 +1232,8 @@
   <script src="{{ asset('vendor/purecounter/purecounter_vanilla.js') }}"></script>
 
   <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
+  <script src="{{ asset('assets/js/main.js') }}"></script>
+  <script src="{{ asset('assets/js/Darkmode.js') }}"></script>
 
 </body>
 

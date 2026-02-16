@@ -2328,3 +2328,52 @@ section,
 .starter-section {
   /* Add your styles here */
 }
+
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.navbar-dark-mode {
+    background-color: #1f1f1f;
+}
+
+/* Dark mode styles for the entire page */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+/* Header */
+.header.dark-mode {
+    background-color: #1f1f1f;
+    border-bottom: 1px solid #333;
+}
+
+/* Buttons */
+.btn.dark-mode {
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #444;
+}
+
+.btn.dark-mode:hover {
+    background-color: #444;
+}
+
+/* Links */
+a.dark-mode {
+    color: #1e90ff;
+}
+
+a.dark-mode:hover {
+    color: #63a4ff;
+}
+
+/* Footer */
+.footer.dark-mode {
+    background-color: #1f1f1f;
+    color: #ccc;
+}
