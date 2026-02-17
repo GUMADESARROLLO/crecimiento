@@ -115,18 +115,6 @@
   border-color: color-mix(in srgb, var(--default-color), transparent 80%);
 }
 
-/* Small tweak: make testimonial and faq cards use clearer surface in dark */
-[data-bs-theme="dark"] .testimonials .testimonial-item,
-.dark-mode .testimonials .testimonial-item,
-[data-bs-theme="dark"] .faq .faq-container .faq-item,
-.dark-mode .faq .faq-container .faq-item,
-[data-bs-theme="dark"] .services .service-card,
-.dark-mode .services .service-card,
-[data-bs-theme="dark"] .pricing .pricing-card,
-.dark-mode .pricing .pricing-card {
-  background-color: var(--surface-color);
-  box-shadow: 0 4px 24px rgba(2,6,23,0.6);
-}
 
 /* Dark-mode specific adjustments for Call To Action and Contact Info */
 [data-bs-theme="dark"] .call-to-action .container,

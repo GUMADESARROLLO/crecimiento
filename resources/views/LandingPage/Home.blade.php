@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Index - Crecimiento de Clientes</title>
+  <title>Home - Crecimiento de Clientes</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
