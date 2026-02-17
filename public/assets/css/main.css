@@ -45,66 +45,66 @@
 }
 
 .dark-background {
-  --background-color: #4682b4;
+  --background-color: #01020e;
   --default-color: #ffffff;
   --heading-color: #ffffff;
-  --surface-color: #409dfd;
+  --surface-color: #252525;
   --contrast-color: #ffffff;
 }
 
 /* Dark mode: supports Bootstrap data-bs-theme and legacy .dark-mode body class */
 [data-bs-theme="dark"],
 .dark-mode {
-  --background-color: #0b0c0f;
-  --default-color: #e6eef8;
+  --background-color: #05071e;
+  --default-color: #e8e7f7;
   --heading-color: #ffffff;
-  --accent-color: #4dabff;
-  --surface-color: #0f1720;
+  --accent-color: #524dd3;
+  --surface-color: #131428;
   --contrast-color: #ffffff;
 
-  --nav-color: #e6eef8;
-  --nav-hover-color: #9ad1ff;
-  --nav-mobile-background-color: #0b0c0f;
-  --nav-dropdown-background-color: #0f1720;
-  --nav-dropdown-color: #e6eef8;
-  --nav-dropdown-hover-color: #9ad1ff;
+  --nav-color: #c8c6e3;
+  --nav-hover-color: #ffffff;
+  --nav-mobile-background-color: #03051f;
+  --nav-dropdown-background-color: #1f2240;
+  --nav-dropdown-color: #c8c6e3;
+  --nav-dropdown-hover-color: #ffffff;
 }
 
 /* Respect user's OS preference when no explicit theme is set */
 @media (prefers-color-scheme: dark) {
   :root:not([data-bs-theme="light"]):not(.light-mode) {
-    --background-color: #0b0c0f;
-    --default-color: #e6eef8;
+    --background-color: #05071e;
+    --default-color: #e8e7f7;
     --heading-color: #ffffff;
-    --accent-color: #4dabff;
-    --surface-color: #0f1720;
+    --accent-color: #524dd3;
+    --surface-color: #131428;
     --contrast-color: #ffffff;
 
-    --nav-color: #e6eef8;
-    --nav-hover-color: #9ad1ff;
-    --nav-mobile-background-color: #0b0c0f;
-    --nav-dropdown-background-color: #0f1720;
-    --nav-dropdown-color: #e6eef8;
-    --nav-dropdown-hover-color: #9ad1ff;
+    --nav-color: #c8c6e3;
+    --nav-hover-color: #ffffff;
+    --nav-mobile-background-color: #03051f;
+    --nav-dropdown-background-color: #1f2240;
+    --nav-dropdown-color: #c8c6e3;
+    --nav-dropdown-hover-color: #ffffff;
   }
 }
 
 /* Ensure sections using .light-background follow dark theme when dark mode is active */
 [data-bs-theme="dark"] .light-background,
 .dark-mode .light-background {
-  --background-color: var(--background-color);
-  --surface-color: #0f1720;
-  --default-color: #e6eef8;
+  --background-color: #0c114a;
+  --surface-color: #131b76;
+  --default-color: #e8e7f7;
   --heading-color: #ffffff;
-  --accent-color: #4dabff;
+  --accent-color: #524dd3;
   --contrast-color: #ffffff;
 
-  --nav-color: #e6eef8;
-  --nav-hover-color: #9ad1ff;
-  --nav-mobile-background-color: #0b0c0f;
-  --nav-dropdown-background-color: #0f1720;
-  --nav-dropdown-color: #e6eef8;
-  --nav-dropdown-hover-color: #9ad1ff;
+  --nav-color: #c8c6e3;
+  --nav-hover-color: #ffffff;
+  --nav-mobile-background-color: #03051f;
+  --nav-dropdown-background-color: #1f2240;
+  --nav-dropdown-color: #c8c6e3;
+  --nav-dropdown-hover-color: #ffffff;
 }
 
 /* Buttons that use Bootstrap's .btn-light need dark overrides */
@@ -780,6 +780,7 @@ section,
   color: var(--default-color);
   background-color: var(--background-color);
   padding: 60px 0;
+  transition: background-color 0.35s ease, color 0.35s ease;
   scroll-margin-top: 90px;
   overflow: clip;
 }
@@ -829,10 +830,12 @@ section,
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
+
 .hero {
   position: relative;
-  padding-top: 160px;
-  background: linear-gradient(135deg, color-mix(in srgb, var(--accent-color), transparent 95%) 50%, color-mix(in srgb, var(--accent-color), transparent 98%) 25%, transparent 50%);
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--background-color) 0%, color-mix(in srgb, var(--accent-color), transparent 95%) 100%);
+  padding: 120px 0;
 }
 
 .hero::before {
@@ -2039,6 +2042,7 @@ section,
   margin-bottom: 15px;
   border-radius: 10px;
   overflow: hidden;
+  transition: background-color 0.35s ease, color 0.35s ease;
 }
 
 .faq .faq-container .faq-item:last-child {
@@ -2118,6 +2122,7 @@ section,
 .call-to-action-2 .container {
   position: relative;
   z-index: 3;
+  transition: background-color 0.35s ease, color 0.35s ease;
 }
 
 .call-to-action-2 h3 {
